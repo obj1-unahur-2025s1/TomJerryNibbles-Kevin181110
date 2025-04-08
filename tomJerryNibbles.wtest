@@ -1,17 +1,61 @@
 import tomJerryNibbles.*
 
-describe "Grupo de test" {
+describe "Grupo de test de tom jerry y nibbles" {
 
-  test "test 1" {
-    assert.equals(100, 50+50)
+  test "La velocidad maxima de tom al inicio es de 10" {
+    assert.equals( 10,tom.velocidadMaxima() )
   }
 
-  test "test 3" {
-    assert.that(true)
+  test "Tom come a Jerry,velocidad maxima de Tom pasa a ser  15.2,la energia pasa a ser 102" {
+    tom.comer(jerry)
+    assert.equals(15.2,tom.velocidadMaxima()  )
+    assert.equals(102,tom.energia()  )
   }
 
-  test "test 4" {
-    assert.notThat(false)
+  test "Tom corre 24 metros y su velocidad maxima para a ser 14 y su energia 90" {
+     tom.comer(jerry)
+    tom.correr(24)
+    assert.equals(14,tom.velocidadMaxima())
+    assert.equals(90,tom.energia()  )
   }
+   test "Tom come a Nibbles,la velocidad maxima de Tom pasa a ser  18.7 y su energia 137" {
+    tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+    assert.equals(18.7,tom.velocidadMaxima())
+    assert.equals(137,tom.energia()  )
+  }
+  test "Tom vuelve a comer a Jerry con 3 años de edad,su velocidad máxima pasa a ser 25.9 y su energia 209"{
+   tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+    jerry.cumplirAños()
+   tom.comer(jerry)
+    assert.equals(25.9,tom.velocidadMaxima() )
+    assert.equals(209,tom.energia()  )
+  }
+  test "Tom corre 38 metros y su velocidad maxima para a ser 24 y su energia 190" {
+   tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+    jerry.cumplirAños()
+   tom.comer(jerry)
+   tom.correr(38)
+    assert.equals(24,tom.velocidadMaxima())
+    assert.equals(190,tom.energia()  )
+  }
+ test "Tom puede cazar un raton que esta a 99 metros"{
+  assert.that(tom.puedeCazar(99))
+ }
+ test "Tom no puede cazar un raton que esta a 120 metros"{
+  assert.notThat(tom.puedeCazar(120))
+ }
+ test"Tom caza a nibbles que esta a 50 metros y la velocidad maxima pasa a ser 12.2 y su energia 72 "
+ {
+  tom.cazar(nibbles, 50)
+   assert.equals(72,tom.energia())
+  assert.equals(12.2,tom.velocidadMaxima())
+ }
+} 
 
-}
+

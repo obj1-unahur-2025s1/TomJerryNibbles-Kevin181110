@@ -11,9 +11,17 @@ object tom {
         distanciaRecorrida = distanciaRecorrida + metros 
     }
     method velocidadMaxima() = 5 + energia/10
-    method puedeCazarA_Distancia(distancia){
+    method puedeCazar(distancia){
+        return energia >= distancia/2
 
     }
+    method cazar(unRaton,unaDistancia){
+         if(self.puedeCazar(unaDistancia)){
+            self.correr(unaDistancia)
+            self.comer(unRaton)
+         }
+    }
+    method energia()= energia
 
 }
 
